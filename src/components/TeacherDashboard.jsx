@@ -13,6 +13,7 @@ import {
   Star,
   Image as ImageIcon,
 } from "lucide-react";
+import StudentStatusDropdown from "./StudentStatusDropdown"; 
 import Footer from "./SchoolFooter";
 import image from "../assets/img.jpg";
 import ban1 from "../assets/ban1.jpg";
@@ -246,18 +247,19 @@ export default function TeacherDashboard({
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="hidden md:block text-right mr-4">
-                <p className="text-sm text-gray-500">Welcome</p>
-                <p className="text-sm font-semibold text-purple-700">{userEmail}</p>
-              </div>
+  
+  <div className="hidden md:block text-right mr-4">
+    <p className="text-sm text-gray-500">Welcome</p>
+    <p className="text-sm font-semibold text-purple-700">{userEmail}</p>
+  </div>
 
-              <button
-                onClick={onLogout}
-                className="flex items-center gap-2 bg-linear-to-r from-pink-500 to-purple-600 text-white px-4 py-2.5 rounded-xl shadow-lg hover:opacity-95 transition transform hover:-translate-y-0.5"
-              >
-                <LogOut size={18} /> Logout
-              </button>
-            </div>
+  <button
+    onClick={onLogout}
+    className="flex items-center gap-2 bg-linear-to-r from-pink-500 to-purple-600 text-white px-4 py-2.5 rounded-xl shadow-lg hover:opacity-95 transition transform hover:-translate-y-0.5"
+  >
+    <LogOut size={18} /> Logout
+  </button>
+</div>
           </div>
         </header>
 
@@ -269,6 +271,8 @@ export default function TeacherDashboard({
           {!selectedClass && (
             <>
               <h2 className="text-3xl font-bold text-center text-pink-600 mb-6">Select Class</h2>
+                <StudentStatusDropdown />  {/* Add this line */}
+
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {classes.map((cls) => {
                   const clsStyle = primaryClasses.has(cls)
